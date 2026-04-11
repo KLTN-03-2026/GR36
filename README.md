@@ -1,7 +1,83 @@
-# Vue 3 + Vite
+# 🏋️‍♂️ SGMS-AI – Smart Gym Management System with AI
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 📌 Giới thiệu (Introduction)
+SGMS-AI là hệ thống quản lý phòng gym thông minh, tích hợp AI nhằm hỗ trợ vận hành và ra quyết định kinh doanh.
 
-## Recommended IDE Setup
+---
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## 🎯 Mục tiêu dự án
+- Quản lý hội viên, nhân viên và dịch vụ
+- Theo dõi tiến trình tập luyện
+- Phân tích dữ liệu kinh doanh
+- Ứng dụng AI (churn prediction, recommendation)
+
+---
+
+## 🚀 Tính năng chính
+
+### 👤 Hội viên
+- Quản lý tài khoản
+- Theo dõi sức khỏe
+- Đặt lịch và check-in QR
+- Gợi ý AI
+
+### 🧑‍🏫 PT
+- Quản lý lịch
+- Theo dõi học viên
+- AI hỗ trợ
+
+### 📊 Quản lý
+- Dashboard
+- Phân tích AI
+- Dự báo doanh thu
+
+### ⚙️ Admin
+- Quản lý hệ thống
+- Phân quyền
+
+---
+
+## 🧠 AI Features
+- Churn Prediction
+- Sentiment Analysis
+- Recommendation System
+
+---
+
+## 🛠️ Tech Stack
+- Backend: Laravel
+- Frontend: VueJS
+- Database: MySQL
+- AI: Gemini API
+
+---
+
+## 👥 Team
+- Nguyễn Hữu Đông
+- Trần Minh Quang
+- Trần Văn Đức
+- Nguyễn Thị Thùy Trang
+- Lê Hữu Trọng
+
+Mentor: Nguyễn Thanh Trung
+
+---
+
+## 📅 Timeline
+- 03/2026 → 05/2026
+
+---
+# Backend
+composer install
+php artisan migrate
+php artisan db:seed
+php artisan server
+
+---
+# Frontend
+npm install
+npm run dev
+
+---
+## 📄 License
+Academic Project
