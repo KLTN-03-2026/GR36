@@ -57,29 +57,19 @@
       <!-- Top Header -->
       <header class="top-header">
         <div class="header-left">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb mb-0">
-              <li class="breadcrumb-item text-muted small">ADMIN</li>
-              <li class="breadcrumb-item active small">QUẢN TRỊ HỆ THỐNG</li>
-            </ol>
-          </nav>
+           
         </div>
         <div class="header-right d-flex align-items-center gap-3">
           <!-- Stat chips -->
-          <div class="header-stat-chip">
-            <i class="fas fa-users"></i>
-            <span class="chip-value">{{ stats.totalUsers }}</span>
-            <span class="chip-label">Người dùng</span>
-          </div>
-          <div class="header-stat-chip chip-danger">
-            <i class="fas fa-user-lock"></i>
-            <span class="chip-value">{{ stats.lockedAccounts }}</span>
-            <span class="chip-label">Bị khóa</span>
-          </div>
-          <!-- Notification bell -->
-          <button class="header-icon-btn" title="Thông báo hệ thống">
-            <i class="fas fa-bell"></i>
-            <span class="notif-dot"></span>
+           
+          <!-- Đăng xuất -->
+          <button
+            class="btn btn-danger btn-sm d-flex align-items-center gap-2"
+            @click="handleLogout"
+            :disabled="loggingOut"
+          >
+            <i class="fas fa-sign-out-alt"></i>
+            <span>{{ loggingOut ? 'Đang xuất...' : 'Đăng xuất' }}</span>
           </button>
           <!-- Admin Avatar -->
           <div class="admin-avatar-wrap d-flex align-items-center gap-2 ms-1">
@@ -116,17 +106,41 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'QuanlyLayout',
   data() {
     return {
       sidebarCollapsed: false,
       showAiBubble: true,
+      loggingOut: false,
       stats: {
         totalUsers: 128,
         lockedAccounts: 3,
       },
     }
+  },
+  methods: {
+    async handleLogout() {
+      if (this.loggingOut) return
+      this.loggingOut = true
+      try {
+        const token = localStorage.getItem('token')
+        await axios.post(
+          `${import.meta.env.VITE_API_BASE_URL}/logout`,
+          {},
+          { headers: { Authorization: `Bearer ${token}` } }
+        )
+      } catch (err) {
+        console.warn('Logout API error:', err)
+      } finally {
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+        this.$router.push('/dangnhap')
+        this.loggingOut = false
+      }
+    },
   },
 }
 </script>

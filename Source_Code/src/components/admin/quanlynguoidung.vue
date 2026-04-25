@@ -95,9 +95,7 @@
               </span>
             </td>
             <td class="col-actions">
-              <button class="action-btn view" title="Xem chi tiết" @click="openDetailModal(acc)">
-                <i class="fas fa-eye"></i>
-              </button>
+               
               <button class="action-btn edit" title="Chỉnh sửa" @click="openEditModal(acc)">
                 <i class="fas fa-pen"></i>
               </button>
@@ -145,23 +143,7 @@
     </div>
 
     <!-- AI Security Tip -->
-    <div class="ai-tip-card" v-if="showTip">
-      <div class="ai-tip-icon"><i class="fas fa-sparkles"></i></div>
-      <div class="ai-tip-body">
-        <div class="ai-tip-title">
-          Gợi ý bảo mật hệ thống
-          <span class="ai-tip-dot"></span>
-        </div>
-        <p class="ai-tip-text">
-          SmartGym AI phát hiện 3 tài khoản Admin chưa đổi mật khẩu trong hơn 90 ngày.
-          Đề xuất thực hiện yêu cầu đặt lại mật khẩu định kỳ cho các tài khoản đặc quyền để duy trì tiêu chuẩn bảo mật SOC2.
-        </p>
-        <div class="ai-tip-actions">
-          <a href="#" class="tip-link" @click.prevent="">Xem chi tiết báo cáo</a>
-          <a href="#" class="tip-dismiss" @click.prevent="showTip = false">Bỏ qua</a>
-        </div>
-      </div>
-    </div>
+    
 
     <!-- ======================== -->
     <!-- MODAL: TẠO TÀI KHOẢN    -->

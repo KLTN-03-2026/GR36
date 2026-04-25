@@ -77,7 +77,7 @@
              <div class="d-flex justify-content-between align-items-center mt-2">
                 <div class="form-text text-muted mt-2" style="font-size: 0.65rem;">Tối thiểu 8 ký tự (chữ & số)</div>
                 
-                  <a href="#" class="text-decoration-none text-muted fw-bold custom-forgot-link">Quên mật khẩu?</a>
+                  <a href="#" class="text-decoration-none text-muted fw-bold custom-forgot-link" @click.prevent="goToForgotPassword">Quên mật khẩu?</a>
              </div>
             </div>
 
@@ -94,17 +94,13 @@
 
           <div class="text-center mt-5 small">
             <span class="text-muted">Chưa có tài khoản?</span>
-            <a href="#" class="text-decoration-none fw-bold custom-register-link ms-1">Đăng ký hội viên</a>
+            <a href="#" class="text-decoration-none fw-bold custom-register-link ms-1" @click.prevent="goToRegister">Đăng ký hội viên</a>
           </div>
         </div>
 
       </div>
     </div> 
-    <div class="position-absolute bottom-0  mb-4 d-flex gap-4 small text-muted">
-       <a href="#" class="text-decoration-none text-muted custom-footer-link">Quy định</a>
-       <a href="#" class="text-decoration-none text-muted custom-footer-link">Bảo mật</a>
-       <a href="#" class="text-decoration-none text-muted custom-footer-link">Hỗ trợ</a>
-    </div>
+     
 
   </div>
 </template>
@@ -118,6 +114,9 @@ const router = useRouter()
 const showPassword = ref(false)
 const errorMsg = ref('')
 const loading = ref(false)
+
+const goToForgotPassword = () => router.push('/forgot-password')
+const goToRegister = () => router.push('/dangky')
 
 const form = reactive({
   email: '',
@@ -149,7 +148,7 @@ const handleLogin = async () => {
     const roleName = user.role?.role_name?.toLowerCase().trim()
 
     if (roleName === 'admin') {
-      router.push('/admin')
+      router.push('/admin/quanlynguoidung')
     } else if (roleName === 'quản lý' || roleName === 'manager') {
       router.push('/quanly')
     } else if (roleName === 'nhân viên' || roleName === 'staff') {
