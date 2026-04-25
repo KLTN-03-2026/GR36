@@ -68,6 +68,7 @@ Mentor: Nguyễn Thanh Trung
 
 ---
 # Backend
+link repo: https://github.com/dongnguyen05112004/khoa_luan_be
 composer install
 php artisan migrate
 php artisan db:seed
